@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Prob1 {
-    static ArrayList<Integer> numbers = new ArrayList<>(); // Dynamically sized list to store polygonal numbers
-    static ArrayList<Integer> types = new ArrayList<>();   // Dynamically sized list to store polygonal types
-    static int totalNumbers = 0;                            // Counter for how many numbers are stored
-    static int[] result = new int[6];                       // Stores the final cyclic se
+    static ArrayList<Integer> numbers = new ArrayList<>(); 
+    static ArrayList<Integer> types = new ArrayList<>();   
+    static int totalNumbers = 0;                           
+    static int[] result = new int[6];                       
 
     public static void main(String[] args) {
         generatePolygonalNumbers();
@@ -32,10 +32,12 @@ public class Prob1 {
         for (int type = 3; type <= 8; type++) {
             for (int n = 1; ; n++) {
                 int value = generatePolygonal(type, n);
-                if (value >= 10000) break; // Stop if the number exceeds 9999
-                if (value >= 1000) { // Only consider 4-digit numbers
-                    numbers.add(value); // Add the number to the list
-                    types.add(type);     // Add the type to the list
+                if (value >= 10000){
+                    break; 
+                }
+                if (value >= 1000) { 
+                    numbers.add(value);
+                    types.add(type);     
                     totalNumbers++;
                 }
             }
@@ -44,19 +46,19 @@ public class Prob1 {
 
     static int generatePolygonal(int type, int n) {
         switch (type) {
-            case 3: return n * (n + 1) / 2;  // Triangle number
-            case 4: return n * n;            // Square number
-            case 5: return n * (3 * n - 1) / 2; // Pentagonal number
-            case 6: return n * (2 * n - 1);   // Hexagonal number
-            case 7: return n * (5 * n - 3) / 2; // Heptagonal number
-            case 8: return n * (3 * n - 2);   // Octagonal number
+            case 3: return n * (n + 1) / 2;  
+            case 4: return n * n;            
+            case 5: return n * (3 * n - 1) / 2; 
+            case 6: return n * (2 * n - 1);   
+            case 7: return n * (5 * n - 3) / 2; 
+            case 8: return n * (3 * n - 2);  
             default: return 0;
         }
     }
 
     static boolean findCyclicSet(int index, int prev, boolean[] usedTypes) {
         if (index == 6) {
-            return isCyclic(result[5], result[0]); // Ensure cycle is complete
+            return isCyclic(result[5], result[0]); 
         }
 
         for (int i = 0; i < totalNumbers; i++) {
