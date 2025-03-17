@@ -9,9 +9,8 @@ public class Prob1 {
     public static void main(String[] args) {
         generatePolygonalNumbers();
 
-        // Try finding the cyclic set starting with any number
         for (int i = 0; i < totalNumbers; i++) {
-            result[0] = numbers.get(i); // Start with a number
+            result[0] = numbers.get(i); 
             boolean[] usedTypes = new boolean[6];
             usedTypes[types.get(i) - 3] = true;
 
