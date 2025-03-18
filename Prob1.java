@@ -67,7 +67,7 @@ public class Prob1 {
 
                 if (findCyclicSet(index + 1, numbers.get(i), usedTypes)) return true;
 
-                usedTypes[types.get(i) - 3] = false; // Backtrack
+                usedTypes[types.get(i) - 3] = false;
             }
         }
         return false;
